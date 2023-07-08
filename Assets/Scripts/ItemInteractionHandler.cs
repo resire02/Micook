@@ -9,27 +9,49 @@ public class ItemInteractionHandler : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
 
     [Header("Functionality")]
-    public LayerMask foodTag;
+    public LayerMask foodLayer;
+    public LayerMask powerLayer;
     public float interactDistance;
     public TMP_Text visualHint;
     bool isLookingAtFood;
+    bool isLookingAtPower;
+    PowerUpdater powerScript;
 
     private void Start() 
     {
         isLookingAtFood = false;
+        isLookingAtPower = false;
 
         visualHint.SetText("");
+
+        powerScript = FindObjectOfType<PowerUpdater>();
     }
 
     private void Update()
     {
-        isLookingAtFood = Physics.Raycast(transform.position, transform.forward, out var hit, interactDistance, foodTag);
+        isLookingAtFood = Physics.Raycast(transform.position, transform.forward, out var foodTarget, interactDistance, foodLayer);
+        isLookingAtPower = Physics.Raycast(transform.position, transform.forward, out var powerTarget, interactDistance, powerLayer);
         
         if(isLookingAtFood)
         {
-            string FoodName = hit.collider.gameObject.name;
+            // Debug.Log("Looking At Food");
+            string FoodName = foodTarget.collider.gameObject.name;
             visualHint.SetText(FoodName);
-            ReadPlayerInput(FoodName);
+        }
+        else if(isLookingAtPower)
+        {
+            if(Input.GetKey(interactKey))
+            {
+                // Debug.Log("Charging");
+                visualHint.SetText("Charging");
+                powerScript.SetChargingStatus(true);
+            }
+            else
+            {
+                // Debug.Log("Looking At Power");
+                visualHint.SetText($"Hold {interactKey} to Charge");
+                powerScript.SetChargingStatus(false);
+            }
         }
         else
         {
@@ -37,11 +59,4 @@ public class ItemInteractionHandler : MonoBehaviour
         }
     }
 
-    private void ReadPlayerInput(string FoodName)
-    {
-        if(Input.GetKey(interactKey))
-        {
-            visualHint.SetText("Ate " + FoodName);
-        }
-    }
 }

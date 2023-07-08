@@ -356,6 +356,7 @@
 "Assets/Scripts/MoveCamera.cs"
 "Assets/Scripts/PlayerCameraMovement.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/PowerUpdater.cs"
 "Assets/Scripts/ScoreboardUpdater.cs"
 "Assets/Scripts/ThirdPersonMovement.cs"
 -langversion:9.0

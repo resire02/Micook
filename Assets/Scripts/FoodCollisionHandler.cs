@@ -3,17 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using TMPro;
+using System;
 
 public class FoodCollisionHandler : MonoBehaviour
 {
-    [Header("Options")]
+    //  Properties
+    [Header("Setup")]
     public GameObject parent;
     public Transform orientation;
     public float foodScale;
+    public TMP_Text visualHint;
     
-    public float cookDuration;
+    [Header("Cooking Process")]
+    public int cookDuration;   //  this is how long it takes to cook
+    public int burnDuration;      //  this is how much longer it takes to burn
     float foodTimer;
     bool timerIsRunning;
+    float totalCookingTime;
+
+    [Header("Scores")]
+    public int rawFoodScore;
+    public int cookedFoodScore;
+    public int burntFoodScore;
+
+    [Header("Debug")]
     public TMP_Text timerText;
     readonly Vector3 TRANSFORM_DEFAULT = new Vector3(0f, -0.3f, 0f);
     
@@ -26,6 +39,10 @@ public class FoodCollisionHandler : MonoBehaviour
 
         timerText.SetText("");
 
+        totalCookingTime = cookDuration + burnDuration;
+
+        if(cookDuration <= 0 || burnDuration <= 0) throw new ArgumentException("Neither cookDuration nor burnDuration can be less than or equal to zero");
+
         //  TODO: add food scalars here
         foodScalar.Add("Turkey", new Vector3(-.05f, -0.3f, 0f));
 
@@ -36,9 +53,9 @@ public class FoodCollisionHandler : MonoBehaviour
         if(microwaveFood != null)
             microwaveFood.transform.rotation = orientation.rotation;
 
-        //  TODO: Remove This
-        if(Input.GetKey(KeyCode.Q))
-            RemoveFood();
+        // //  TODO: Remove This
+        // if(Input.GetKey(KeyCode.Q))
+        //     RemoveFood();
 
         if(timerIsRunning)
             checkTimer();
@@ -65,48 +82,76 @@ public class FoodCollisionHandler : MonoBehaviour
 
             createTimer();
         }
-        else if(other.gameObject.CompareTag("plate"))
+        else if(other.gameObject.CompareTag("plate") && timerIsRunning)
         {
             RemoveFood();
+            RegisterScore();
         }
     }
 
-    private Object getObject(string food)
+    private UnityEngine.Object getObject(string food)
     {
         return Resources.Load($"Models/Food/{food}");
     }
 
+    private void RegisterScore()
+    {
+        int time = (int) Mathf.Floor(foodTimer);
+
+        // Debug.Log(time);
+
+        ScoreboardUpdater sb = FindObjectOfType<ScoreboardUpdater>();
+
+        if(time < cookDuration)
+        {
+            Debug.Log("Food is Raw");
+            sb.score += rawFoodScore;
+        }
+        else if(time < totalCookingTime)
+        {
+            Debug.Log("Food is Cooked");
+            sb.score += cookedFoodScore;
+        }
+        else
+        {
+            Debug.Log("Food is Burnt");
+            sb.score += burntFoodScore;
+        }
+    }
+
     private void RemoveFood()
     {
-        if(microwaveFood != null) return;
+        if(microwaveFood == null) return;
 
         GameObject.Destroy(microwaveFood);
         microwaveFood = null;
+        timerText.SetText("");
+        timerIsRunning = false;
     }
 
     private void createTimer()
     {
-        foodTimer = cookDuration;
+        foodTimer = 0;
         timerIsRunning = true;
     }
 
     private void checkTimer()
     {
-        foodTimer -= Time.deltaTime;
+        foodTimer += Time.deltaTime;
+        foodTimer = Mathf.Clamp(foodTimer, 0.0f, totalCookingTime);
 
         // Debug.Log(foodTimer);
 
         timerText.SetText($"{Mathf.Floor(foodTimer)}");
 
-        if(foodTimer < 0f)
-        {
-            timerIsRunning = false;
+        ////////////////////////
+        //  TODO: add event system to trigger model change
+        ////////////////////////
 
-            Debug.Log("Food is Ready!");
+    }
 
-            timerText.SetText("");
-
-            RemoveFood();
-        }
+    private void ClearModel()
+    {
+        Debug.Log("Cleared Model");
     }
 }

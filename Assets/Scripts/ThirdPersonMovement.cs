@@ -20,7 +20,7 @@ public class ThirdPersonMovement : MonoBehaviour
     }
 
     void Update(){
-        if(tp.activeSelf){
+        if(tp.activeSelf && !fp.activeSelf){
             Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
             orientation.forward = viewDir.normalized;
 
