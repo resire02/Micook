@@ -9,7 +9,16 @@ public class FoodCollisionHandler : MonoBehaviour
     public Transform orientation;
     public float foodScale;
     
+    public float cookDuration;
+    float foodTimer;
+    bool timerIsRunning;
+    
     GameObject microwaveFood;
+
+    void Start()
+    {
+        timerIsRunning = false;
+    }
 
     void Update()
     {
@@ -19,6 +28,9 @@ public class FoodCollisionHandler : MonoBehaviour
         //  TODO: Remove This
         if(Input.GetKey(KeyCode.Q))
             RemoveFood();
+
+        if(timerIsRunning)
+            checkTimer();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -39,6 +51,8 @@ public class FoodCollisionHandler : MonoBehaviour
             microwaveFood.transform.localPosition = new Vector3(1f, -0.5f, 0f);
 
             GameObject.Destroy(other.gameObject);
+
+            createTimer();
         }
         else if(other.gameObject.CompareTag("plate"))
         {
@@ -57,5 +71,24 @@ public class FoodCollisionHandler : MonoBehaviour
 
         GameObject.Destroy(microwaveFood);
         microwaveFood = null;
+    }
+
+    private void createTimer()
+    {
+        foodTimer = cookDuration;
+        timerIsRunning = true;
+    }
+
+    private void checkTimer()
+    {
+        foodTimer -= Time.deltaTime;
+
+        Debug.Log(foodTimer);
+
+        if(foodTimer < 0f)
+        {
+            timerIsRunning = false;
+            Debug.Log("Food is Ready!");
+        }
     }
 }
