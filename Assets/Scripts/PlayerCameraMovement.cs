@@ -8,6 +8,7 @@ public class PlayerCameraMovement : MonoBehaviour
     public float sensY;
 
     public Transform orientation;
+    private GameObject microwave;
 
     float xRotation;
     float yRotation;
@@ -16,6 +17,7 @@ public class PlayerCameraMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        microwave = GameObject.FindGameObjectWithTag("microwave");
     }
 
     private void Update()
@@ -29,5 +31,6 @@ public class PlayerCameraMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        microwave.transform.rotation = Quaternion.Euler(0, yRotation + 180f, 0);
     }
 }
