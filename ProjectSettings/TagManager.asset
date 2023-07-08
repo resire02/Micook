@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - microwave
+<<<<<<< Updated upstream
   - InteractHint
+=======
+  - food
+  - scoreboard
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
