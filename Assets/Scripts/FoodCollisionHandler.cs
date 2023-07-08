@@ -48,7 +48,7 @@ public class FoodCollisionHandler : MonoBehaviour
             microwaveFood.transform.SetParent(parent.transform);
             microwaveFood.transform.localScale = new Vector3(foodScale, foodScale, foodScale);
 
-            microwaveFood.transform.localPosition = new Vector3(1f, -0.5f, 0f);
+            microwaveFood.transform.localPosition = new Vector3(-.05f, -0.3f, 0f);
 
             GameObject.Destroy(other.gameObject);
 

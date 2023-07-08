@@ -5,6 +5,10 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Camera")]
+    public GameObject fp;
+    public GameObject tp;
+
     [Header("Movement")]
     public float moveSpeed;
 
@@ -45,19 +49,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        if(fp.activeSelf || tp.activeSelf){
+            // ground check
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
-        // Debug.Log(grounded);
+            // Debug.Log(grounded);
 
-        MyInput();
-        SpeedControl();
+            MyInput();
+            SpeedControl();
 
-        // handle drag
-        if (grounded)
-            rb.drag = groundDrag;
-        else
-            rb.drag = 0;
+            // handle drag
+            if (grounded)
+                rb.drag = groundDrag;
+            else
+                rb.drag = 0;
+        }
+        else{
+            horizontalInput = 0;
+            verticalInput = 0;
+        }
     }
 
     private void FixedUpdate()
