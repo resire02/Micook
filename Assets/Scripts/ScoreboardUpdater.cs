@@ -6,18 +6,18 @@ using TMPro;
 
 public class ScoreboardUpdater : MonoBehaviour
 {
-    public int score = 0;
-    private Text scoreboardPoints;
+    public TMP_Text scoreboardPoints;
+    public int score = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        //scoreboardPoints = GetComponent("Text") as Text;
+        scoreboardPoints.text = "Score: ";
     }
 
     // Update is called once per frame
     void Update()
     {
-        //scoreboardPoints.text = "Score: " + score.ToString();
+        scoreboardPoints.text = "Score: " + score.ToString();
     }
 }

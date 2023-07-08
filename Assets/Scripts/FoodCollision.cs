@@ -8,7 +8,9 @@ public class FoodCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision col){
         if(col.gameObject.CompareTag("food")){
-            Debug.Log("hit");
+            ScoreboardUpdater sb = FindObjectOfType<ScoreboardUpdater>();
+
+            sb.score += itemPoints;
         }
     }
 }
