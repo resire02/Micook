@@ -8,6 +8,7 @@ TagManager:
   - microwave
   - scoreboard
   - food
+  - player
   layers:
   - Default
   - TransparentFX
