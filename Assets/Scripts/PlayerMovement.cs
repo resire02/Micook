@@ -30,7 +30,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
+    public LayerMask whatIsPlatform;
     bool grounded;
+    bool platformed;
 
     public Transform orientation;
 
@@ -56,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if(fp.activeSelf || tp.activeSelf){
             // ground check
             grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+            platformed = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsPlatform);
 
             // Debug.Log(grounded);
 
@@ -63,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             SpeedControl();
 
             // handle drag
-            if (grounded)
+            if (grounded || platformed)
                 rb.drag = groundDrag;
             else
                 rb.drag = 0;
@@ -87,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         // Debug.Log(readyToJump + " " + grounded);
 
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if(Input.GetKey(jumpKey) && readyToJump && (grounded || platformed))
         {
             readyToJump = false;
 
@@ -105,11 +108,11 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on ground
-        if(grounded)
+        if(grounded || platformed)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
-        else if(!grounded)
+        else if(!grounded || platformed)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
 
