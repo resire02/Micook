@@ -1,12 +1,15 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AudioHandler
     - CameraSwitch
     - FoodCollisionHandler
     - FoodSpawner
+    - GameEndingHandler
     - ItemInteractionHandler
     - MenuEventHandler
     - MoveCamera
+    - PauseMenuScript
     - PlayerCameraMovement
     - PlayerMovement
     - PowerUpdater
@@ -88,6 +91,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MenuEventHandler
     methodName: SwitchToScene
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: Resume
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: Exit
   sceneClasses:
     Assets/Scenes/MainGame.unity:
     - Class: 1
@@ -110,6 +119,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
@@ -121,58 +132,70 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 1586}
+    - Class: 114
       Script: {instanceID: 1756}
     - Class: 114
-      Script: {instanceID: 2040}
+      Script: {instanceID: 1884}
     - Class: 114
-      Script: {instanceID: 2430}
+      Script: {instanceID: 2042}
     - Class: 114
-      Script: {instanceID: 2502}
+      Script: {instanceID: 2424}
     - Class: 114
-      Script: {instanceID: 2554}
+      Script: {instanceID: 2434}
     - Class: 114
-      Script: {instanceID: 2686}
+      Script: {instanceID: 2506}
     - Class: 114
-      Script: {instanceID: 2760}
+      Script: {instanceID: 2558}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 3740}
+      Script: {instanceID: 2690}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 2764}
     - Class: 114
-      Script: {instanceID: 5124}
+      Script: {instanceID: 2828}
     - Class: 114
-      Script: {instanceID: 5548}
+      Script: {instanceID: 3118}
     - Class: 114
-      Script: {instanceID: 5560}
+      Script: {instanceID: 3742}
     - Class: 114
-      Script: {instanceID: 5644}
+      Script: {instanceID: 4774}
     - Class: 114
-      Script: {instanceID: 5658}
+      Script: {instanceID: 5126}
     - Class: 114
-      Script: {instanceID: 5688}
+      Script: {instanceID: 5460}
     - Class: 114
-      Script: {instanceID: 5854}
+      Script: {instanceID: 5552}
     - Class: 114
-      Script: {instanceID: 6472}
+      Script: {instanceID: 5564}
     - Class: 114
-      Script: {instanceID: 7824}
+      Script: {instanceID: 5648}
     - Class: 114
-      Script: {instanceID: 7914}
+      Script: {instanceID: 5662}
     - Class: 114
-      Script: {instanceID: 24550}
+      Script: {instanceID: 5692}
+    - Class: 114
+      Script: {instanceID: 5858}
+    - Class: 114
+      Script: {instanceID: 6062}
+    - Class: 114
+      Script: {instanceID: 6174}
+    - Class: 114
+      Script: {instanceID: 6478}
+    - Class: 114
+      Script: {instanceID: 7830}
+    - Class: 114
+      Script: {instanceID: 7920}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
-    - Class: 135
-      Script: {instanceID: 0}
-    - Class: 136
-      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -205,6 +228,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -212,27 +237,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1586}
     - Class: 114
-      Script: {instanceID: 2196}
+      Script: {instanceID: 2198}
     - Class: 114
-      Script: {instanceID: 2620}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2828}
     - Class: 114
-      Script: {instanceID: 3116}
+      Script: {instanceID: 3118}
     - Class: 114
-      Script: {instanceID: 3360}
+      Script: {instanceID: 3362}
     - Class: 114
-      Script: {instanceID: 4142}
+      Script: {instanceID: 4144}
     - Class: 114
-      Script: {instanceID: 4406}
+      Script: {instanceID: 4408}
     - Class: 114
-      Script: {instanceID: 5124}
+      Script: {instanceID: 5126}
     - Class: 114
-      Script: {instanceID: 5688}
+      Script: {instanceID: 5692}
     - Class: 114
-      Script: {instanceID: 5854}
+      Script: {instanceID: 5858}
     - Class: 114
-      Script: {instanceID: 6168}
+      Script: {instanceID: 6174}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -330,6 +355,12 @@ ScriptsOnlyBuild:
     className: CinemachineCameraOffset
   - hash:
       serializedVersion: 2
+      Hash: 3827088cbd0a8a77dc42c01a8b27777d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseMenuScript
+  - hash:
+      serializedVersion: 2
       Hash: 6225eb0973ab0af667bc5f9d1b1b18de
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -384,13 +415,19 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 1e213a26593177159f0eea89542e17b2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FoodSpawner
+  - hash:
+      serializedVersion: 2
       Hash: 51bfa7676a4be429b19163a18e390e2a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerCameraMovement
   - hash:
       serializedVersion: 2
-      Hash: 716222fdd83121c5b4eceeeb8155da33
+      Hash: a2ce385f5e9e91dd9ab6a7586fc87080
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PowerUpdater
@@ -990,6 +1027,12 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
+      Hash: 4e3bda0b1ed6ca7d07cf4d7f8e5eb125
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioHandler
+  - hash:
+      serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
     assemblyName: Unity.VisualScripting.State.dll
     namespaceName: Unity.VisualScripting
@@ -1080,6 +1123,12 @@ ScriptsOnlyBuild:
     className: UnityOnMouseUpAsButtonMessageListener
   - hash:
       serializedVersion: 2
+      Hash: ee2f42db06d973648f31b9781cbc0c4b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameEndingHandler
+  - hash:
+      serializedVersion: 2
       Hash: e09e8bebc0fcd32bb8af1287a6b44816
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -1128,7 +1177,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 79c520c4516520e2d64d172ba3f2d42c
+      Hash: 651b30dd47475beffd0a91936325ec78
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1390,12 +1439,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FoodSpawner
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

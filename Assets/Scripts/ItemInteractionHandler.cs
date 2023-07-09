@@ -16,15 +16,17 @@ public class ItemInteractionHandler : MonoBehaviour
     bool isLookingAtFood;
     bool isLookingAtPower;
     PowerUpdater powerScript;
+    bool startingText;
 
     private void Start() 
     {
         isLookingAtFood = false;
         isLookingAtPower = false;
-
-        visualHint.SetText("");
+        startingText = true;
 
         powerScript = FindObjectOfType<PowerUpdater>();
+
+        Invoke(nameof(ClearStartingText), 3f);
     }
 
     private void Update()
@@ -53,11 +55,20 @@ public class ItemInteractionHandler : MonoBehaviour
                 powerScript.SetChargingStatus(false);
             }
         }
+        else if(startingText)
+        {
+            visualHint.SetText("Go Cook All The Food!");
+        }
         else
         {
             visualHint.SetText("");
             powerScript.SetChargingStatus(false);
         }
+    }
+
+    private void ClearStartingText()
+    {
+        startingText = false;
     }
 
 }
