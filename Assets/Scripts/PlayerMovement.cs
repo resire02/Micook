@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     bool platformed;
 
     public Transform orientation;
+    public KeyCode sprint;
 
     float horizontalInput;
     float verticalInput;
@@ -89,6 +90,14 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+                
+        if(Input.GetKeyDown(sprint) && (grounded || platformed))
+        {
+            moveSpeed *= 3;
+        }
+        else if (Input.GetKeyUp(sprint) && (grounded || platformed)){
+            moveSpeed /= 3;
+        }
 
         // Debug.Log(readyToJump + " " + grounded);
 

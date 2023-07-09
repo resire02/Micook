@@ -12,7 +12,7 @@ public class GameEndingHandler : MonoBehaviour
     void Start()
     {
         //foodRemaining = transform.gameObject.GetComponentsInChildren<Transform>().Length;
-        foodRemaining = 3;
+        foodRemaining = 12;
     }
 
     public void CheckWin()
