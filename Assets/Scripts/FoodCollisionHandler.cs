@@ -32,9 +32,12 @@ public class FoodCollisionHandler : MonoBehaviour
     
     GameObject microwaveFood;
     Dictionary<string, Vector3> foodScalar = new Dictionary<string, Vector3>();
+    AudioHandler aux;
 
     void Start()
     {
+        aux = FindObjectOfType<AudioHandler>();
+        
         timerIsRunning = false;
 
         timerText.SetText("");
@@ -66,6 +69,9 @@ public class FoodCollisionHandler : MonoBehaviour
         if(other.gameObject.CompareTag("food") && !timerIsRunning)
         {
             // Debug.Log(other.gameObject.name);
+
+            aux.PlaySound("MicrowaveStart");
+            aux.PlaySound("MicrowaveAmbient", true);
 
             microwaveFood = (GameObject) Instantiate(
                 getObject(other.gameObject.name),
@@ -99,6 +105,9 @@ public class FoodCollisionHandler : MonoBehaviour
         int time = (int) Mathf.Floor(foodTimer);
 
         // Debug.Log(time);
+
+        aux.StopSound("MicrowaveAmbient");
+        aux.PlaySound("MicrowaveEnd");
 
         ScoreboardUpdater sb = FindObjectOfType<ScoreboardUpdater>();
 

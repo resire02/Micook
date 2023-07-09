@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
+    private AudioHandler aux;
+
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -43,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        aux = FindObjectOfType<AudioHandler>();
 
         readyToJump = true;
     }
@@ -88,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
             readyToJump = false;
 
             Jump();
+
+            aux.PlaySound("Jump");
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
