@@ -192,7 +192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51949800}
-  m_LocalRotation: {x: 0.23546061, y: 0.0000000083613045, z: -0.0000000020257127, w: 0.9718839}
+  m_LocalRotation: {x: 0.23546061, y: -0.000000008361301, z: 0.0000000020257123, w: 0.9718839}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1498,6 +1498,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500279553}
   m_CullTransparentMesh: 1
+--- !u!1 &533211110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 6aa358c19a0313b4aa60c3bb828a3f84, type: 3}
+  m_PrefabInstance: {fileID: 1661163438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &533211114
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533211110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026976911, y: 0.02454803, z: 0.021559665}
+  m_Center: {x: -0.0034331614, y: 0.0022740152, z: 0.00077983085}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,6 +2955,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5711052370896006010, guid: 6aa358c19a0313b4aa60c3bb828a3f84, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6aa358c19a0313b4aa60c3bb828a3f84, type: 3}
       propertyPath: m_Name
       value: roomv3
@@ -2983,7 +3005,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.019999998, z: -0.75}
+  m_Size: {x: 0.02, y: 0.019999998, z: 0.019999996}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &1661163445
 BoxCollider:
