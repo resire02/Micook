@@ -56,6 +56,7 @@ public class ItemInteractionHandler : MonoBehaviour
         else
         {
             visualHint.SetText("");
+            powerScript.SetChargingStatus(false);
         }
     }
 

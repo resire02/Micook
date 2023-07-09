@@ -28,7 +28,7 @@ public class PowerUpdater : MonoBehaviour
     void FixedUpdate()
     {
         if(isCharging)
-            currentPower += powerDrainingRate * Time.deltaTime;
+            currentPower += powerDrainingRate * 2f * Time.deltaTime;
         else
             currentPower -= powerDrainingRate * Time.deltaTime;
 
