@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//  https://pixabay.com/music/search/cafe%20jazz/
+
 /*
 Use this code to play sounds:
     AudioHandler aux = FindObjectOfType<AudioHandler>();
@@ -15,6 +17,10 @@ public class AudioHandler : MonoBehaviour
     private void Start()
     {   
         audioIndex = new Dictionary<string, AudioSource>();
+
+        PlaySound("BackgroundMusic", true);
+
+        audioIndex["BackgroundMusic"].volume = 0.025f;
 
         // PlaySound("MicrowaveAmbient", true);
     }
