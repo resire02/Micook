@@ -49,7 +49,10 @@ public class FoodCollisionHandler : MonoBehaviour
         if(cookDuration <= 0 || burnDuration <= 0) throw new ArgumentException("Neither cookDuration nor burnDuration can be less than or equal to zero");
 
         //  TODO: add food scalars here
-        foodScalar.Add("Turkey", new Vector3(-.05f, -0.3f, 0f));
+        foodScalar.Add("Turkey", new Vector3(.08f, -0.3f, 0f));
+        foodScalar.Add("Apple", new Vector3(-.07f, -0.15f, 0f));
+        foodScalar.Add("Pizza", new Vector3(-.05f, -0.2f, 0f));
+        foodScalar.Add("Tuna", new Vector3(-.05f, -0.3f, 0f));
     
     }
 
@@ -85,6 +88,10 @@ public class FoodCollisionHandler : MonoBehaviour
             microwaveFood.transform.localScale = new Vector3(foodScale, foodScale, foodScale);
 
             microwaveFood.transform.localPosition = foodScalar.TryGetValue(other.gameObject.name, out var scalar) ? scalar : TRANSFORM_DEFAULT;
+
+            if(other.gameObject.name == "Pizza"){
+                microwaveFood.transform.localScale = new Vector3(.4f, .4f, .4f);
+            }
 
             GameObject.Destroy(other.gameObject);
 
