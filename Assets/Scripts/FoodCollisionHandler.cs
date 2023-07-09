@@ -92,6 +92,9 @@ public class FoodCollisionHandler : MonoBehaviour
             if(other.gameObject.name == "Pizza"){
                 microwaveFood.transform.localScale = new Vector3(.4f, .4f, .4f);
             }
+            if(other.gameObject.name == "Apple"){
+                microwaveFood.transform.localScale = new Vector3(.15f, .15f, .15f);
+            }
 
             GameObject.Destroy(other.gameObject);
 

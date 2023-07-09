@@ -11,7 +11,8 @@ public class GameEndingHandler : MonoBehaviour
 
     void Start()
     {
-        foodRemaining = transform.gameObject.GetComponentsInChildren<Transform>().Length;
+        //foodRemaining = transform.gameObject.GetComponentsInChildren<Transform>().Length;
+        foodRemaining = 3;
     }
 
     public void CheckWin()
@@ -39,6 +40,8 @@ public class GameEndingHandler : MonoBehaviour
 
     public void LoseGame()
     {
+        AudioHandler aux = FindObjectOfType<AudioHandler>();
+        aux.PlaySound("GameLose");
         textObject.SetText("You Ran Out Power!");
 
         Invoke(nameof(EndText), 5f);
@@ -50,6 +53,8 @@ public class GameEndingHandler : MonoBehaviour
 
     private void EndGame()
     {
+        AudioHandler aux = FindObjectOfType<AudioHandler>();
+        aux.PlaySound("GameWin");
         textObject.SetText("You\'re Winner!");
 
         Invoke(nameof(EndText), 5f);
