@@ -12,6 +12,7 @@ public class PauseMenuScript : MonoBehaviour
     void Start()
     {
         isPaused = false;
+        Time.timeScale = 1.0f;
     }
 
     void Update()

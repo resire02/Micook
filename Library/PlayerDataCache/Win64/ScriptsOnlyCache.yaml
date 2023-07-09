@@ -203,6 +203,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
     Assets/Scenes/Menu.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -1177,7 +1181,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 651b30dd47475beffd0a91936325ec78
+      Hash: d6b739a96a068dbe773a1e87f0b5e8c6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1399,7 +1403,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 33179bffbe326fbbd8b4c596f2bfcce6
+      Hash: dd5c9602a056085e34d5421294b76b8a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreboardUpdater

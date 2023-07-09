@@ -218,17 +218,6 @@
       "DebugActionIndex": 6
     },
     {
-      "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/level1.resS",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "Library/PlayerDataCache/Win64/Data/level1.resS"
-      ],
-      "Outputs": [
-        "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/level1.resS"
-      ],
-      "DebugActionIndex": 7
-    },
-    {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/resources.assets",
       "ActionType": "CopyFiles",
       "Inputs": [
@@ -237,7 +226,7 @@
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/resources.assets"
       ],
-      "DebugActionIndex": 8
+      "DebugActionIndex": 7
     },
     {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/resources.assets.resS",
@@ -248,7 +237,7 @@
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/resources.assets.resS"
       ],
-      "DebugActionIndex": 9
+      "DebugActionIndex": 8
     },
     {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/resources.resource",
@@ -259,7 +248,7 @@
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/resources.resource"
       ],
-      "DebugActionIndex": 10
+      "DebugActionIndex": 9
     },
     {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/RuntimeInitializeOnLoads.json",
@@ -270,7 +259,7 @@
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/RuntimeInitializeOnLoads.json"
       ],
-      "DebugActionIndex": 11
+      "DebugActionIndex": 10
     },
     {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/ScriptingAssemblies.json",
@@ -281,7 +270,7 @@
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/ScriptingAssemblies.json"
       ],
-      "DebugActionIndex": 12
+      "DebugActionIndex": 11
     },
     {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets0.assets",
@@ -292,7 +281,7 @@
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets0.assets"
       ],
-      "DebugActionIndex": 13
+      "DebugActionIndex": 12
     },
     {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets0.assets.resS",
@@ -303,7 +292,7 @@
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets0.assets.resS"
       ],
-      "DebugActionIndex": 14
+      "DebugActionIndex": 13
     },
     {
       "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets1.assets",
@@ -313,6 +302,17 @@
       ],
       "Outputs": [
         "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets1.assets"
+      ],
+      "DebugActionIndex": 14
+    },
+    {
+      "Annotation": "CopyFiles C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets1.assets.resS",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Library/PlayerDataCache/Win64/Data/sharedassets1.assets.resS"
+      ],
+      "Outputs": [
+        "C:/Users/howfe/Desktop/UnityProjects/build/GMTK2023_Data/sharedassets1.assets.resS"
       ],
       "DebugActionIndex": 15
     },
