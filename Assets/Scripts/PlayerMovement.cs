@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         aux = FindObjectOfType<AudioHandler>();
 
         readyToJump = true;
+
+        Physics.gravity = new Vector3(0f, -9.8f * 1.5f, 0f);
     }
 
     private void Update()
@@ -100,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
     }
 
     private void MovePlayer()

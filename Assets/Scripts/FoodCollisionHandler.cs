@@ -33,10 +33,12 @@ public class FoodCollisionHandler : MonoBehaviour
     GameObject microwaveFood;
     Dictionary<string, Vector3> foodScalar = new Dictionary<string, Vector3>();
     AudioHandler aux;
+    GameEndingHandler gameEnd;
 
     void Start()
     {
         aux = FindObjectOfType<AudioHandler>();
+        gameEnd = FindObjectOfType<GameEndingHandler>();
         
         timerIsRunning = false;
 
@@ -48,7 +50,7 @@ public class FoodCollisionHandler : MonoBehaviour
 
         //  TODO: add food scalars here
         foodScalar.Add("Turkey", new Vector3(-.05f, -0.3f, 0f));
-
+    
     }
 
     void Update()
@@ -126,6 +128,8 @@ public class FoodCollisionHandler : MonoBehaviour
             Debug.Log("Food is Burnt");
             sb.score += burntFoodScore;
         }
+
+        gameEnd.CheckWin();
     }
 
     private void RemoveFood()
