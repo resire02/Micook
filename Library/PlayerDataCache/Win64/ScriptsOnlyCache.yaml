@@ -42,6 +42,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
   serializedClasses:
     Cinemachine:
     - Cinemachine.AxisState
@@ -242,6 +243,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 1586}
     - Class: 114
       Script: {instanceID: 2198}
+    - Class: 114
+      Script: {instanceID: 2324}
     - Class: 114
       Script: {instanceID: 2624}
     - Class: 114
