@@ -108,8 +108,11 @@ public class FoodCollisionHandler : MonoBehaviour
 
         // Debug.Log(time);
 
+        aux.StopSound("Cooked");
+        aux.StopSound("Burning");
         aux.StopSound("MicrowaveAmbient");
         aux.PlaySound("MicrowaveEnd");
+
 
         ScoreboardUpdater sb = FindObjectOfType<ScoreboardUpdater>();
 
@@ -157,6 +160,15 @@ public class FoodCollisionHandler : MonoBehaviour
         // Debug.Log(foodTimer);
 
         timerText.SetText($"{Mathf.Floor(foodTimer)}");
+
+        if(foodTimer >= totalCookingTime)
+        {
+            aux.PlaySound("Burning", true);
+        }
+        else if(foodTimer >= cookDuration)
+        {
+            aux.PlaySound("Cooked", true);
+        }
 
         ////////////////////////
         //  TODO: add event system to trigger model change

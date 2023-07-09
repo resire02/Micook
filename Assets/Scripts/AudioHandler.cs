@@ -52,9 +52,11 @@ public class AudioHandler : MonoBehaviour
 
     private void PlayAudioClip(string clip, bool looped)
     {
+        if(audioIndex[clip].isPlaying) return;
+        
         if(audioIndex[clip].clip == null)
             audioIndex[clip].clip = (AudioClip) Resources.Load($"Audio/{clip}");
-            
+        
         audioIndex[clip].loop = looped;
         audioIndex[clip].Play();
     }
