@@ -7,13 +7,34 @@ using UnityEngine.SceneManagement;
 public class GameEndingHandler : MonoBehaviour
 {
     public TMP_Text textObject;
+    private int foodRemaining;
+
+    void Start()
+    {
+        foodRemaining = transform.gameObject.GetComponentsInChildren<Transform>().Length;
+    }
 
     public void CheckWin()
     {
-        if(transform.gameObject.GetComponentsInChildren<Transform>().Length <= 1)
+        if(FoodRemaining() <= 0)
         {
             EndGame();
         }
+    }
+
+    public int FoodRemaining()
+    {
+        return foodRemaining;
+    }
+
+    public void DecrementFoodCount()
+    {
+        foodRemaining--;
+    }
+
+    void Update()
+    {
+        // Debug.Log(foodRemaining);
     }
 
     public void LoseGame()

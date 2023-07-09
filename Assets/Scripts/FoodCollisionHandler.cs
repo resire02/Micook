@@ -129,6 +129,7 @@ public class FoodCollisionHandler : MonoBehaviour
             sb.score += burntFoodScore;
         }
 
+        gameEnd.DecrementFoodCount();
         gameEnd.CheckWin();
     }
 
