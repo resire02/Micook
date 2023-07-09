@@ -10,6 +10,7 @@ public class PowerUpdater : MonoBehaviour
     public TMP_Text powerText;
     public float startingPower;
     public float powerDrainingRate;
+    public float powerChargingRate;
     float currentPower;
     bool isCharging;
 
@@ -28,7 +29,7 @@ public class PowerUpdater : MonoBehaviour
     void FixedUpdate()
     {
         if(isCharging)
-            currentPower += powerDrainingRate * 2f * Time.deltaTime;
+            currentPower += powerChargingRate * Time.deltaTime;
         else
             currentPower -= powerDrainingRate * Time.deltaTime;
 

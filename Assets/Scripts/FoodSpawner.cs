@@ -6,16 +6,27 @@ using System;
 
 public class FoodSpawner : MonoBehaviour
 {
-    public LayerMask foodLayer;
+    // public LayerMask foodLayer;
+    public float xOffset, yOffset, zOffset;
+    public float collisionRadius;
+
     private List<Transform> spawnList = new List<Transform>();
-    private List<UnityEngine.Object> foodList = new List<UnityEngine.Object>();
+    private List<string> foodList  = new List<string>();
     private System.Random rand = new System.Random();
+    private readonly string[] foodNameList = {"Apple", "Pizza", "Tuna", "Turkey"};
+
+    readonly Vector3 TRANSFORM_DEFAULT = new Vector3(1f, 1f, 1f);
+    Dictionary<string, Vector3> foodScalar = new Dictionary<string, Vector3>();
 
     void Start()
     {
+        //  TODO: add food scalars here
+        // foodScalar.Add("Turkey", new Vector3(1f, 1f, 1f));
+
+
         PopulateSpawnList();
 
-        PopulateFoodList();
+        RegisterFoods(foodNameList);
 
         SpawnInitial();
     }
@@ -34,17 +45,9 @@ public class FoodSpawner : MonoBehaviour
             spawnList.Add(spawn);
 
             // Debug.Log(spawn.gameObject.name);
-        }
-    }
-    
-    private void PopulateFoodList()
-    {
-        UnityEngine.Object[] foods = Resources.LoadAll("Models/Food");
-        
-        if(foods.Length == 0) throw new Exception("Resources were not found.");
 
-        foreach(UnityEngine.Object obj in foods)
-            foodList.Add(obj);
+            Destroy(spawn.gameObject);
+        }
     }
 
     private void SpawnInitial()
@@ -52,13 +55,40 @@ public class FoodSpawner : MonoBehaviour
         foreach(Transform loc in spawnList)
         {
             GameObject obj = (GameObject) Instantiate(
-                foodList[rand.Next(foodList.Count)],
-                loc.position,
+                GetObject(foodList[rand.Next(foodList.Count)]),
+                new Vector3(
+                    loc.position.x + xOffset,
+                    loc.position.y + yOffset,
+                    loc.position.z + zOffset
+                ),
                 Quaternion.identity
             );
 
-            obj.layer = foodLayer;
+            obj.layer = LayerMask.NameToLayer("Food");
+
+            obj.transform.SetParent(transform);
+
+            obj.transform.localScale = foodScalar.TryGetValue(obj.name, out var scalar) ? scalar : TRANSFORM_DEFAULT;
+
+            SphereCollider sc = obj.AddComponent(typeof(SphereCollider)) as SphereCollider;
+
+            sc.radius = Mathf.Abs(collisionRadius);
+
+            obj.name = obj.name.Replace("(Clone)","");
+
+            obj.tag = "food";
         }
 
     }
+
+    private void RegisterFoods(string[] foods)
+    {
+        foreach(string food in foods) foodList.Add(food);
+    }
+
+    private UnityEngine.Object GetObject(string food)
+    {
+        return Resources.Load($"Models/Food/{food}");
+    }
+
 }
