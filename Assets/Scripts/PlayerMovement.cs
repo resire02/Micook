@@ -52,15 +52,16 @@ public class PlayerMovement : MonoBehaviour
 
         readyToJump = true;
 
-        Physics.gravity = new Vector3(0f, -9.8f * 1.5f, 0f);
+        Physics.gravity = new Vector3(0f, -9.8f * 3f, 0f);
     }
 
     private void Update()
     {
         if(fp.activeSelf || tp.activeSelf){
-            // ground check
-            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-            platformed = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsPlatform);
+            Vector3 boxCenter = transform.position - new Vector3(0f, playerHeight * 0.5f, 0f);
+            Vector3 halfExtents = transform.localScale * .75f;
+            grounded = Physics.CheckBox(boxCenter, halfExtents, transform.rotation, whatIsGround);
+            platformed = Physics.CheckBox(boxCenter, halfExtents, transform.rotation, whatIsPlatform);
 
             // Debug.Log(grounded);
 
