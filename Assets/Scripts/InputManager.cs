@@ -10,17 +10,22 @@ public class InputManager : MonoBehaviour
 
     private PlayerMovement movement;
     private PlayerLook look;
+    private PlayerInteract interact;
 
     private void Awake()
     {
         playerInput = new PlayerInput();
         controls = playerInput.Movement;
+
         movement = GetComponent<PlayerMovement>();
         look = GetComponent<PlayerLook>();
+        interact = GetComponent<PlayerInteract>();
 
         controls.Jump.performed += ctx => movement.Jump();
         controls.Sprint.started += ctx => movement.ToggleSprint(true);
         controls.Sprint.canceled += ctx => movement.ToggleSprint(false);
+        controls.Interact.started += ctx => interact.StartInteract();
+        controls.Interact.canceled += ctx => interact.CancelInteract();
     }
 
     private void FixedUpdate()
