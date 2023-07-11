@@ -9,13 +9,13 @@ public abstract class Interactable : MonoBehaviour
 
     public void BaseStartInteract()
     {
-        // Debug.Log("Start Interaction");
+        Debug.Log("Start Interaction");
         StartInteract();
     }
 
     public void BaseCancelInteract()
     {
-        // Debug.Log("End Interaction");
+        Debug.Log("End Interaction");
         CancelInteract();
     }
 

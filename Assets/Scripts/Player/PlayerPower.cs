@@ -1,35 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerPower : MonoBehaviour
 {
     public float chargeCapacity = 100f;
     public float powerDrainingRate = 0.5f;
     public float powerChargingRate = 10f;
+    public TextMeshProUGUI powerText;
+
     private float power;
-    private float rate;
+    private bool isCharging;
 
     private void Start()
     {
         power = chargeCapacity;
-        rate = powerDrainingRate;
     }
 
     private void Update()
     {
-        power -= rate * Time.deltaTime;
+        if(isCharging)
+            power += (powerChargingRate * Time.deltaTime);
+        else
+            power -= (powerDrainingRate * Time.deltaTime);
+
         power = Mathf.Clamp(power, 0, chargeCapacity);
 
-        Debug.Log((int) power);
+        powerText.text = $"Power: {(int) power}%";
     }
 
-    public void ToggleChargeStatus(bool status)
+    public void SetChargeStatus(bool status)
     {
-        if(status)
-            rate = -powerChargingRate;
-        else
-            rate = powerDrainingRate;
+        isCharging = status;
     }
     
 }
