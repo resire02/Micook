@@ -5956,6 +5956,7 @@ GameObject:
   - component: {fileID: 2088863167}
   - component: {fileID: 2088863166}
   - component: {fileID: 2088863168}
+  - component: {fileID: 2088863169}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6032,7 +6033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99354cb7863be3c4f89aa0e9fe5165d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  walkingSpeed: 10
+  sprintingSpeed: 20
   gravity: -9.8
   jumpHeight: 20
 --- !u!114 &2088863167
@@ -6062,6 +6064,22 @@ MonoBehaviour:
   cam: {fileID: 1864600041}
   xSens: 60
   ySens: 60
+--- !u!114 &2088863169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088863160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec1b3819ca097047a80741e9ede82c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 4
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2116791377
 GameObject:
   m_ObjectHideFlags: 0

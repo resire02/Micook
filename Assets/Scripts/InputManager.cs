@@ -19,6 +19,8 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
 
         controls.Jump.performed += ctx => movement.Jump();
+        controls.Sprint.started += ctx => movement.ToggleSprint(true);
+        controls.Sprint.canceled += ctx => movement.ToggleSprint(false);
     }
 
     private void FixedUpdate()
@@ -39,5 +41,15 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         playerInput.Disable();
+    }
+
+    public bool CheckInteractTriggered()
+    {
+        return controls.Interact.triggered;
+    }
+
+    public bool CheckSprintTriggered()
+    {
+        return controls.Sprint.triggered;
     }
 }

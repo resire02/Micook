@@ -360,6 +360,7 @@
 "Assets/Scripts/Menu/MenuEventHandler.cs"
 "Assets/Scripts/MoveCamera.cs"
 "Assets/Scripts/PauseMenuScript.cs"
+"Assets/Scripts/Player/PlayerInteract.cs"
 "Assets/Scripts/Player/PlayerLook.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/PlayerCameraMovement.cs"

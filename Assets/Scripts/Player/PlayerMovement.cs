@@ -7,14 +7,17 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
 
-    public float speed = 10f;
+    public float walkingSpeed = 10f;
+    public float sprintingSpeed = 20f;
+    private float speed;
     public float gravity = -9.8f;
     public float jumpHeight = 6f;
-    private bool isGrounded;
+    private bool isGrounded = false;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        speed = walkingSpeed;
     }
 
     private void FixedUpdate()
@@ -36,6 +39,14 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         if(isGrounded) playerVelocity.y = Mathf.Sqrt(gravity * jumpHeight * -1f);
+    }
+
+    public void ToggleSprint(bool sprintStatus)
+    {
+        if(sprintStatus)
+            speed = sprintingSpeed;
+        else
+            speed = walkingSpeed;
     }
     
 }
