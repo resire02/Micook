@@ -365,6 +365,7 @@
 "Assets/Scripts/Player/PlayerInteract.cs"
 "Assets/Scripts/Player/PlayerLook.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
+"Assets/Scripts/Player/PlayerPerspective.cs"
 "Assets/Scripts/Player/PlayerPower.cs"
 "Assets/Scripts/PlayerCameraMovement.cs"
 "Assets/Scripts/PlayerMovementHandler.cs"

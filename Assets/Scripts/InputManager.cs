@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     private PlayerMovement movement;
     private PlayerLook look;
     private PlayerInteract interact;
+    private PlayerPerspective perspective;
 
     private void Awake()
     {
@@ -20,12 +21,14 @@ public class InputManager : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         look = GetComponent<PlayerLook>();
         interact = GetComponent<PlayerInteract>();
+        perspective = GetComponent<PlayerPerspective>();
 
         controls.Jump.performed += ctx => movement.Jump();
         controls.Sprint.started += ctx => movement.ToggleSprint(true);
         controls.Sprint.canceled += ctx => movement.ToggleSprint(false);
         controls.Interact.started += ctx => interact.StartInteract();
         controls.Interact.canceled += ctx => interact.CancelInteract();
+        controls.TogglePerspective.performed += ctx => perspective.TogglePerspective();
     }
 
     private void FixedUpdate()
