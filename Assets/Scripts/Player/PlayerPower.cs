@@ -35,4 +35,8 @@ public class PlayerPower : MonoBehaviour
         isCharging = status;
     }
     
+    public bool OutOfPower()
+    {
+        return power == 0;
+    }
 }

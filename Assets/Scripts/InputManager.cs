@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     private PlayerLook look;
     private PlayerInteract interact;
     private PlayerMicrowave microwave;
+    private GamePause pause;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         interact = GetComponent<PlayerInteract>();
         microwave = GetComponent<PlayerMicrowave>();
+        pause = GetComponent<GamePause>();
 
         controls.Jump.performed += ctx => movement.Jump();
         controls.Sprint.started += ctx => movement.ToggleSprint(true);
@@ -29,6 +31,7 @@ public class InputManager : MonoBehaviour
         controls.Interact.started += ctx => interact.StartInteract();
         controls.Interact.canceled += ctx => interact.CancelInteract();
         controls.Dispose.performed += ctx => microwave.DisposeFood();
+        controls.PauseGame.performed += ctx => pause.TogglePauseGame();
     }
 
     private void FixedUpdate()

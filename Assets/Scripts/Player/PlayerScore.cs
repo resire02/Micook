@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerScore : MonoBehaviour
 {
     [HideInInspector] public enum CookStatus { DISPOSED, UNCOOKED, COOKED, BURNT };
-    public float startingScore = 0f;
+    [SerializeField] private float startingScore = 0f;
     public TextMeshProUGUI scoreText;
 
     [Header("Score Configuration")]
@@ -41,4 +41,5 @@ public class PlayerScore : MonoBehaviour
         startingScore = Mathf.Max(startingScore, 0);
         scoreText.text = $"Score: {startingScore}";
     }
+
 }

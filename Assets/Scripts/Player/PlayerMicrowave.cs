@@ -13,10 +13,12 @@ public class PlayerMicrowave : MonoBehaviour
     private readonly Vector3 TRANSFORM_DEFAULT = new Vector3(0.2f, -.6f, .1f);
     private float microwaveTimer = 0;
     private PlayerScore score;
+    private PlayerObjective objective;
 
     private void Start()
     {
         score = GetComponent<PlayerScore>();
+        objective = GetComponent<PlayerObjective>();
     }
 
     private void FixedUpdate()
@@ -67,6 +69,8 @@ public class PlayerMicrowave : MonoBehaviour
         else
             score.CalculateCookScore(PlayerScore.CookStatus.BURNT);
 
+        objective.DecrementFoodCount();
+
         DestroyFood();
     }
 
@@ -75,6 +79,8 @@ public class PlayerMicrowave : MonoBehaviour
         if(!isMicrowaving) return;
 
         score.CalculateCookScore(PlayerScore.CookStatus.DISPOSED);
+
+        objective.DecrementFoodCount();
 
         DestroyFood();
     }
