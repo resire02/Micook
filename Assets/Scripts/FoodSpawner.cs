@@ -65,7 +65,9 @@ public class FoodSpawner : MonoBehaviour
                 Quaternion.identity
             );
 
-            obj.layer = LayerMask.NameToLayer("Food");
+            obj.layer = LayerMask.NameToLayer("Interactable");
+
+            obj.AddComponent<Food>();
 
             obj.transform.SetParent(transform);
 

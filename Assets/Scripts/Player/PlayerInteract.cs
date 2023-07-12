@@ -31,7 +31,7 @@ public class PlayerInteract : MonoBehaviour
         {
             // Debug.Log($"Looking at {hitCollider.transform.gameObject.name}");
             interactObject = hitCollider.collider.GetComponent<Interactable>();
-            visualText.text = isInteracting ? interactObject.interactMessage : interactObject.viewMessage;
+            visualText.text = isInteracting ? interactObject.InteractMessage() : interactObject.ViewMessage();
         }
         else
         {

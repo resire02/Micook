@@ -64,7 +64,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""TogglePerspective"",
+                    ""name"": ""Dispose"",
                     ""type"": ""Button"",
                     ""id"": ""71cbfd4c-5dba-4cdd-8939-6b853cf04650"",
                     ""expectedControlType"": ""Button"",
@@ -275,18 +275,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TogglePerspective"",
+                    ""action"": ""Dispose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""6e605fd9-9ad1-4efb-8f44-e8b7a42bdd94"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TogglePerspective"",
+                    ""action"": ""Dispose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -861,7 +861,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
         m_Movement_Sprint = m_Movement.FindAction("Sprint", throwIfNotFound: true);
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
-        m_Movement_TogglePerspective = m_Movement.FindAction("TogglePerspective", throwIfNotFound: true);
+        m_Movement_Dispose = m_Movement.FindAction("Dispose", throwIfNotFound: true);
         m_Movement_Look = m_Movement.FindAction("Look", throwIfNotFound: true);
         m_Movement_PauseGame = m_Movement.FindAction("PauseGame", throwIfNotFound: true);
         // UI
@@ -941,7 +941,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Jump;
     private readonly InputAction m_Movement_Sprint;
     private readonly InputAction m_Movement_Interact;
-    private readonly InputAction m_Movement_TogglePerspective;
+    private readonly InputAction m_Movement_Dispose;
     private readonly InputAction m_Movement_Look;
     private readonly InputAction m_Movement_PauseGame;
     public struct MovementActions
@@ -952,7 +952,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
         public InputAction @Sprint => m_Wrapper.m_Movement_Sprint;
         public InputAction @Interact => m_Wrapper.m_Movement_Interact;
-        public InputAction @TogglePerspective => m_Wrapper.m_Movement_TogglePerspective;
+        public InputAction @Dispose => m_Wrapper.m_Movement_Dispose;
         public InputAction @Look => m_Wrapper.m_Movement_Look;
         public InputAction @PauseGame => m_Wrapper.m_Movement_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
@@ -976,9 +976,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @TogglePerspective.started += instance.OnTogglePerspective;
-            @TogglePerspective.performed += instance.OnTogglePerspective;
-            @TogglePerspective.canceled += instance.OnTogglePerspective;
+            @Dispose.started += instance.OnDispose;
+            @Dispose.performed += instance.OnDispose;
+            @Dispose.canceled += instance.OnDispose;
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
@@ -1001,9 +1001,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @TogglePerspective.started -= instance.OnTogglePerspective;
-            @TogglePerspective.performed -= instance.OnTogglePerspective;
-            @TogglePerspective.canceled -= instance.OnTogglePerspective;
+            @Dispose.started -= instance.OnDispose;
+            @Dispose.performed -= instance.OnDispose;
+            @Dispose.canceled -= instance.OnDispose;
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
@@ -1151,7 +1151,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnTogglePerspective(InputAction.CallbackContext context);
+        void OnDispose(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
     }

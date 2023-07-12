@@ -20,4 +20,15 @@ public class Outlet : Interactable
     {
         power.SetChargeStatus(false);
     }
+
+    public override string ViewMessage() 
+    {
+        return "Press E to Charge";
+    }
+
+    public override string InteractMessage() 
+    {
+        return "Charging...";
+    }
+
 }

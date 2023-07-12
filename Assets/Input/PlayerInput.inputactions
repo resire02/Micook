@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TogglePerspective",
+                    "name": "Dispose",
                     "type": "Button",
                     "id": "71cbfd4c-5dba-4cdd-8939-6b853cf04650",
                     "expectedControlType": "Button",
@@ -253,18 +253,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TogglePerspective",
+                    "action": "Dispose",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "6e605fd9-9ad1-4efb-8f44-e8b7a42bdd94",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TogglePerspective",
+                    "action": "Dispose",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

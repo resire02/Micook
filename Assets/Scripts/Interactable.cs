@@ -4,18 +4,26 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public string viewMessage;
-    public string interactMessage;
+
+    public virtual string ViewMessage() 
+    {
+        return string.Empty;
+    }
+
+    public virtual string InteractMessage() 
+    {
+        return string.Empty;
+    }
 
     public void BaseStartInteract()
     {
-        Debug.Log("Start Interaction");
+        // Debug.Log("Start Interaction");
         StartInteract();
     }
 
     public void BaseCancelInteract()
     {
-        Debug.Log("End Interaction");
+        // Debug.Log("End Interaction");
         CancelInteract();
     }
 
