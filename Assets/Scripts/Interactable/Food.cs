@@ -6,11 +6,13 @@ public class Food : Interactable
 {
     private string foodName;
     private PlayerMicrowave microwave;
+    private AudioHandler aux;
 
     private void Start()
     {
         foodName = transform.gameObject.name;
         microwave = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMicrowave>();
+        aux = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioHandler>();
     }
 
     protected override void StartInteract()
@@ -19,6 +21,8 @@ public class Food : Interactable
         {
             microwave.MicrowaveFood(foodName);
 
+            aux.PlaySound("MicrowaveStart");
+
             Destroy(transform.gameObject);
         }
     }
@@ -26,6 +30,11 @@ public class Food : Interactable
     public override string ViewMessage() 
     {
         return $"Press E to microwave {foodName}";
+    }
+
+    public override string InteractMessage()
+    {
+        return ViewMessage();
     }
 
 }

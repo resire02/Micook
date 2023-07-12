@@ -14,11 +14,13 @@ public class PlayerMicrowave : MonoBehaviour
     private float microwaveTimer = 0;
     private PlayerScore score;
     private PlayerObjective objective;
+    private AudioHandler aux;
 
     private void Start()
     {
         score = GetComponent<PlayerScore>();
         objective = GetComponent<PlayerObjective>();
+        aux = GetComponent<AudioHandler>();
     }
 
     private void FixedUpdate()
@@ -30,6 +32,20 @@ public class PlayerMicrowave : MonoBehaviour
 
             microwaveTimer += Time.deltaTime;
             microwaveTimer = Mathf.Clamp(microwaveTimer, 0, burnThreshold);
+
+            if(microwaveTimer < cookThreshold)
+            {
+                aux.PlaySound("MicrowaveAmbient", true);
+            }
+            else if(microwaveTimer < burnThreshold)
+            {
+                aux.PlaySound("Cooked", true);
+            }
+            else
+            {
+                aux.PlaySound("Burning", true);
+            }
+
         }
     }
 
@@ -62,6 +78,11 @@ public class PlayerMicrowave : MonoBehaviour
     {
         if(!isMicrowaving) return;
         
+        aux.StopSound("Cooked");
+        aux.StopSound("Burning");
+        aux.StopSound("MicrowaveAmbient");
+        aux.PlaySound("MicrowaveEnd");
+
         if(microwaveTimer < cookThreshold)
             score.CalculateCookScore(PlayerScore.CookStatus.UNCOOKED);
         else if(microwaveTimer < burnThreshold)
@@ -77,6 +98,11 @@ public class PlayerMicrowave : MonoBehaviour
     public void DisposeFood()
     {
         if(!isMicrowaving) return;
+        
+        aux.StopSound("Cooked");
+        aux.StopSound("Burning");
+        aux.StopSound("MicrowaveAmbient");
+        aux.PlaySound("Disposed");
 
         score.CalculateCookScore(PlayerScore.CookStatus.DISPOSED);
 

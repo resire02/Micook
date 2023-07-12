@@ -10,10 +10,13 @@ public class PlayerObjective : MonoBehaviour
     public TextMeshProUGUI objectiveText;
 
     private PlayerPower power;
+    private AudioHandler aux;
 
     private void Start()
     {
         power = GetComponent<PlayerPower>();
+        aux = GetComponent<AudioHandler>();
+
         objectiveText.text = $"Food Remaining: {foodRemaining}";
     }
 
@@ -27,17 +30,29 @@ public class PlayerObjective : MonoBehaviour
 
     private void TiggerWinGame()
     {
-    
+        aux.PlaySound("GameWin");
+        objectiveText.text = "Congratulations, you prepared dinner!";
+        Invoke(nameof(TransitionScene), 3f);
     }
 
     private void TiggerLoseGame()
     {
-
+        aux.PlaySound("GameLose");
+        objectiveText.text = "Uh oh, you ran out of power!";
+        Invoke(nameof(TransitionScene), 3f);
     }
 
     public void DecrementFoodCount()
     {
         foodRemaining--;
         objectiveText.text = $"Food Remaining: {foodRemaining}";
+    }
+
+    private void TransitionScene()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        SceneManager.LoadScene("Menu");
     }
 }
