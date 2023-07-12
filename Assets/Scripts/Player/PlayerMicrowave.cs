@@ -12,6 +12,12 @@ public class PlayerMicrowave : MonoBehaviour
     private readonly Vector3 SCALAR_DEFAULT = new Vector3(.25f, .25f, .25f);
     private readonly Vector3 TRANSFORM_DEFAULT = new Vector3(0.2f, -.6f, .1f);
     private float microwaveTimer = 0;
+    private PlayerScore score;
+
+    private void Start()
+    {
+        score = GetComponent<PlayerScore>();
+    }
 
     private void FixedUpdate()
     {
@@ -52,19 +58,32 @@ public class PlayerMicrowave : MonoBehaviour
 
     public void SubmitFood()
     {
-        //  TODO: make a call to PlayerScore to score food
+        if(!isMicrowaving) return;
         
-        DisposeFood();
+        if(microwaveTimer < cookThreshold)
+            score.CalculateCookScore(PlayerScore.CookStatus.UNCOOKED);
+        else if(microwaveTimer < burnThreshold)
+            score.CalculateCookScore(PlayerScore.CookStatus.COOKED);
+        else
+            score.CalculateCookScore(PlayerScore.CookStatus.BURNT);
+
+        DestroyFood();
     }
 
     public void DisposeFood()
     {
-        if(isMicrowaving)
-        {
-            Destroy(microwavedFood);
-            isMicrowaving = false;
-            microwavedFood = null;
-            microwaveTimer = 0;
-        }
+        if(!isMicrowaving) return;
+
+        score.CalculateCookScore(PlayerScore.CookStatus.DISPOSED);
+
+        DestroyFood();
+    }
+
+    private void DestroyFood()
+    {
+        Destroy(microwavedFood);
+        isMicrowaving = false;
+        microwavedFood = null;
+        microwaveTimer = 0;
     }
 }
