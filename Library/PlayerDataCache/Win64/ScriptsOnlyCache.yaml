@@ -17,6 +17,7 @@ ScriptsOnlyBuild:
     - PlayerObjective
     - PlayerPower
     - PlayerScore
+    - needCharging
     Cinemachine.dll:
     - Cinemachine.CinemachineComposer
     - Cinemachine.CinemachineOrbitalTransposer
@@ -31,8 +32,6 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.UI.InputSystemUIInputModule
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.TestTools.CodeCoverage.Editor.dll:
-    - UnityEditor.TestTools.CodeCoverage.CoverageRunData
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
@@ -42,13 +41,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
-    - TestRunner.Callbacks.WindowResultUpdaterDataHolder
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
@@ -60,6 +56,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Shadow
+    - UnityEngine.UI.Slider
   serializedClasses:
     Cinemachine:
     - Cinemachine.AxisState
@@ -102,6 +100,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
@@ -156,59 +155,65 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1798}
     - Class: 114
+      Script: {instanceID: 1838}
+    - Class: 114
       Script: {instanceID: 1950}
     - Class: 114
-      Script: {instanceID: 2512}
+      Script: {instanceID: 2374}
     - Class: 114
-      Script: {instanceID: 2676}
+      Script: {instanceID: 2514}
     - Class: 114
-      Script: {instanceID: 2746}
+      Script: {instanceID: 2678}
     - Class: 114
-      Script: {instanceID: 2814}
+      Script: {instanceID: 2748}
     - Class: 114
-      Script: {instanceID: 2958}
+      Script: {instanceID: 2816}
     - Class: 114
-      Script: {instanceID: 3106}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 3252}
+      Script: {instanceID: 3108}
     - Class: 114
-      Script: {instanceID: 3284}
+      Script: {instanceID: 3254}
     - Class: 114
-      Script: {instanceID: 3990}
+      Script: {instanceID: 3286}
     - Class: 114
-      Script: {instanceID: 4432}
+      Script: {instanceID: 3992}
     - Class: 114
-      Script: {instanceID: 4464}
+      Script: {instanceID: 4434}
     - Class: 114
-      Script: {instanceID: 5126}
+      Script: {instanceID: 4466}
     - Class: 114
-      Script: {instanceID: 5198}
+      Script: {instanceID: 5128}
     - Class: 114
-      Script: {instanceID: 5520}
+      Script: {instanceID: 5200}
     - Class: 114
-      Script: {instanceID: 5530}
+      Script: {instanceID: 5442}
     - Class: 114
-      Script: {instanceID: 5880}
+      Script: {instanceID: 5522}
     - Class: 114
-      Script: {instanceID: 5884}
+      Script: {instanceID: 5532}
     - Class: 114
-      Script: {instanceID: 5912}
+      Script: {instanceID: 5882}
     - Class: 114
-      Script: {instanceID: 5990}
+      Script: {instanceID: 5886}
     - Class: 114
-      Script: {instanceID: 6142}
+      Script: {instanceID: 5914}
     - Class: 114
-      Script: {instanceID: 6326}
+      Script: {instanceID: 5992}
     - Class: 114
-      Script: {instanceID: 6558}
+      Script: {instanceID: 6144}
     - Class: 114
-      Script: {instanceID: 7088}
+      Script: {instanceID: 6328}
     - Class: 114
-      Script: {instanceID: 7302}
+      Script: {instanceID: 6560}
     - Class: 114
-      Script: {instanceID: 7836}
+      Script: {instanceID: 7090}
     - Class: 114
-      Script: {instanceID: 8404}
+      Script: {instanceID: 7304}
+    - Class: 114
+      Script: {instanceID: 7838}
+    - Class: 114
+      Script: {instanceID: 8406}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -269,27 +274,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2264}
     - Class: 114
-      Script: {instanceID: 2404}
+      Script: {instanceID: 2406}
     - Class: 114
-      Script: {instanceID: 2746}
+      Script: {instanceID: 2748}
     - Class: 114
-      Script: {instanceID: 2958}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 3284}
+      Script: {instanceID: 3286}
     - Class: 114
-      Script: {instanceID: 3560}
+      Script: {instanceID: 3562}
     - Class: 114
-      Script: {instanceID: 4438}
+      Script: {instanceID: 4440}
     - Class: 114
-      Script: {instanceID: 4730}
+      Script: {instanceID: 4732}
     - Class: 114
-      Script: {instanceID: 5520}
+      Script: {instanceID: 5522}
     - Class: 114
-      Script: {instanceID: 6142}
+      Script: {instanceID: 6144}
     - Class: 114
-      Script: {instanceID: 6326}
+      Script: {instanceID: 6328}
     - Class: 114
-      Script: {instanceID: 6678}
+      Script: {instanceID: 6680}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -475,6 +480,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnJointBreakMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 7e78dff65742ff12aeb7b1d8b251bbff
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: needCharging
   - hash:
       serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
@@ -945,7 +956,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreak2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c892422d1899e32074539c56cb069bad
+      Hash: d5fb48010e646ef3e5e9d025e6ba7d5f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerLook
@@ -1727,4 +1738,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/MainGame.unity
-  playerPath: C:/Users/howfe/Desktop/UnityProjects/finish/GMTK2023.exe
+  playerPath: C:/Users/jason/Desktop/Micook/GMTK2023.exe

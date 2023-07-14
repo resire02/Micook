@@ -15,7 +15,7 @@ public class PlayerPower : MonoBehaviour
 
     private void Start()
     {
-        power = 8f;
+        power = 100f;
     }
 
     private void Update()
