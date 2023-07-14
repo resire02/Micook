@@ -8,8 +8,11 @@ public class PlayerLook : MonoBehaviour
     public Camera cam;
     public Slider slider;
     private float xRotation = 0f;
+    private PlayerPerspective perspective;
 
-    void Start(){
+    void Start()
+    {
+        perspective = GetComponent<PlayerPerspective>();
         slider.value = 60f;
     }
 

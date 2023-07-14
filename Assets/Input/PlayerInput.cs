@@ -89,6 +89,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchPerspective"",
+                    ""type"": ""Button"",
+                    ""id"": ""a95fecfb-6a85-4193-8537-4ee706d6b86d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -331,6 +340,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dfd4b58-3227-4b47-9b67-160debb6c014"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchPerspective"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebcc7635-69fb-4c96-ae9d-0ffef7689456"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchPerspective"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -864,6 +895,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Movement_Dispose = m_Movement.FindAction("Dispose", throwIfNotFound: true);
         m_Movement_Look = m_Movement.FindAction("Look", throwIfNotFound: true);
         m_Movement_PauseGame = m_Movement.FindAction("PauseGame", throwIfNotFound: true);
+        m_Movement_SwitchPerspective = m_Movement.FindAction("SwitchPerspective", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -944,6 +976,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Dispose;
     private readonly InputAction m_Movement_Look;
     private readonly InputAction m_Movement_PauseGame;
+    private readonly InputAction m_Movement_SwitchPerspective;
     public struct MovementActions
     {
         private @PlayerInput m_Wrapper;
@@ -955,6 +988,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Dispose => m_Wrapper.m_Movement_Dispose;
         public InputAction @Look => m_Wrapper.m_Movement_Look;
         public InputAction @PauseGame => m_Wrapper.m_Movement_PauseGame;
+        public InputAction @SwitchPerspective => m_Wrapper.m_Movement_SwitchPerspective;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -985,6 +1019,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PauseGame.started += instance.OnPauseGame;
             @PauseGame.performed += instance.OnPauseGame;
             @PauseGame.canceled += instance.OnPauseGame;
+            @SwitchPerspective.started += instance.OnSwitchPerspective;
+            @SwitchPerspective.performed += instance.OnSwitchPerspective;
+            @SwitchPerspective.canceled += instance.OnSwitchPerspective;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -1010,6 +1047,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PauseGame.started -= instance.OnPauseGame;
             @PauseGame.performed -= instance.OnPauseGame;
             @PauseGame.canceled -= instance.OnPauseGame;
+            @SwitchPerspective.started -= instance.OnSwitchPerspective;
+            @SwitchPerspective.performed -= instance.OnSwitchPerspective;
+            @SwitchPerspective.canceled -= instance.OnSwitchPerspective;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -1154,6 +1194,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnDispose(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
+        void OnSwitchPerspective(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
