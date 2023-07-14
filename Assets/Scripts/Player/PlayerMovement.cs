@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private AudioHandler aux;
+    private PlayerPower pp;
 
     public float walkingSpeed = 10f;
     public float sprintingSpeed = 20f;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         aux = GetComponent<AudioHandler>();
+        pp = FindObjectOfType<PlayerPower>();
 
         speed = walkingSpeed;
     }
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = Vector3.zero;
         move.x = input.x;
         move.z = input.y;
-        if(input != Vector2.zero && isGrounded) aux.PlaySound("Walk");
+        if(input != Vector2.zero && isGrounded && !pp.OutOfPower()) aux.PlaySound("Walk");
         controller.Move(transform.TransformDirection(move) * speed * Time.deltaTime);
         playerVelocity.y += gravity * Time.deltaTime;
         if(isGrounded && playerVelocity.y < 0) playerVelocity.y = -1f;
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if(isGrounded) 
+        if(isGrounded && !pp.OutOfPower()) 
         {
             playerVelocity.y = Mathf.Sqrt(gravity * jumpHeight * -1f);
             aux.PlaySound("Jump");

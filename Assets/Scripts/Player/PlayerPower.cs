@@ -15,7 +15,7 @@ public class PlayerPower : MonoBehaviour
 
     private void Start()
     {
-        power = chargeCapacity;
+        power = 8f;
     }
 
     private void Update()
@@ -38,5 +38,10 @@ public class PlayerPower : MonoBehaviour
     public bool OutOfPower()
     {
         return power == 0;
+    }
+
+    public float PowerLevel()
+    {
+        return power;
     }
 }
