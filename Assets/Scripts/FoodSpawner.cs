@@ -22,8 +22,11 @@ public class FoodSpawner : MonoBehaviour
     {
         //  TODO: add food scalars here
         // foodScalar.Add("Turkey", new Vector3(1f, 1f, 1f));
-        foodScalar.Add("Pizza", new Vector3(3f, 3f, 3f));
+
+        foodScalar.Add("Pizza", new Vector3(5f, 5f, 5f));
         foodScalar.Add("Tuna", new Vector3(2.5f, 4f, 2.5f));
+        foodScalar.Add("Turkey", new Vector3(0.7f, 0.7f, 0.7f));
+        foodScalar.Add("Apple", new Vector3(0.9f, 0.9f, 0.9f));
 
         PopulateSpawnList();
 

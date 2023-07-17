@@ -1841,7 +1841,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529719783}
-  m_LocalRotation: {x: 0.20985529, y: -0.000000008411618, z: 0.0000000018054248, w: 0.9777325}
+  m_LocalRotation: {x: 0.20985529, y: 0.000000008411619, z: -0.0000000018054251, w: 0.9777325}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3763,7 +3763,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -185.53625, y: 0, z: -174.71564, w: 0}
+  m_margin: {x: -360.28894, y: 0, z: -349.68814, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3787,7 +3787,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1337177518}
   - component: {fileID: 1337177519}
-  - component: {fileID: 1337177520}
   m_Layer: 0
   m_Name: FoodSpawnLocations
   m_TagString: Untagged
@@ -3837,20 +3836,7 @@ MonoBehaviour:
   xOffset: 0
   yOffset: 0
   zOffset: 0
-  collisionRadius: 3
---- !u!114 &1337177520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337177517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887dcbd88dc85ea44bbd147d50efb559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textObject: {fileID: 0}
+  collisionRadius: 4
 --- !u!1 &1343278634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,7 +4486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1cb19277bcd7444897727914a9e0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPowerLevel: 20
+  minPowerLevel: 15
   fadeImg: {fileID: 1894925087}
 --- !u!1 &1542934361
 GameObject:
@@ -5659,7 +5645,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821093019}
-  m_LocalRotation: {x: 0.25736117, y: 0.000000008313396, z: -0.000000002214128, w: 0.9663153}
+  m_LocalRotation: {x: 0.25736117, y: -0.000000008313393, z: 0.000000002214127, w: 0.9663153}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6537,10 +6523,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingScore: 0
   scoreText: {fileID: 1922778043}
-  disposedScore: -5
+  disposedScore: -3
   uncookedScore: 1
-  cookedScore: 5
-  burntScore: 2
+  cookedScore: 3
+  burntScore: -1
 --- !u!114 &2088863174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6706,7 +6692,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103855170}
-  m_LocalRotation: {x: 0.2573612, y: 0.000000016626792, z: -0.0000000044282555, w: 0.9663153}
+  m_LocalRotation: {x: 0.2573612, y: -0.00000001662679, z: 0.0000000044282547, w: 0.9663153}
   m_LocalPosition: {x: -95.80531, y: 9.530001, z: 13.261162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -42,4 +42,9 @@ public class PlayerScore : MonoBehaviour
         scoreText.text = $"Score: {startingScore}";
     }
 
+    public float GetScore()
+    {
+        return startingScore;
+    }
+
 }

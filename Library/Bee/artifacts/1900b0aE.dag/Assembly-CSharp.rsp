@@ -358,8 +358,8 @@
 "Assets/Scripts/Interactable/Food.cs"
 "Assets/Scripts/Interactable/Outlet.cs"
 "Assets/Scripts/Interactable/Plate.cs"
+"Assets/Scripts/Menu/HighScoreUpdater.cs"
 "Assets/Scripts/Menu/MenuEventHandler.cs"
-"Assets/Scripts/needCharging.cs"
 "Assets/Scripts/Old/CameraSwitch.cs"
 "Assets/Scripts/Old/FoodCollisionHandler.cs"
 "Assets/Scripts/Old/GameEndingHandler.cs"
@@ -380,6 +380,8 @@
 "Assets/Scripts/Player/PlayerPerspective.cs"
 "Assets/Scripts/Player/PlayerPower.cs"
 "Assets/Scripts/Player/PlayerScore.cs"
+"Assets/Scripts/ScoreTracker.cs"
+"Assets/Scripts/ScreenFade.cs"
 "Assets/Scripts/Testing/FoodCollision.cs"
 "Assets/Scripts/Testing/itemCollision.cs"
 -langversion:9.0

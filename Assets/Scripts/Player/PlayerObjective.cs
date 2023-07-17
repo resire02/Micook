@@ -9,37 +9,43 @@ public class PlayerObjective : MonoBehaviour
     public int foodRemaining = 12;
     public TextMeshProUGUI objectiveText;
 
+    private bool gameEnded = false;
     private PlayerPower power;
     private AudioHandler aux;
+    private PlayerScore score;
 
     private void Start()
     {
         power = GetComponent<PlayerPower>();
         aux = GetComponent<AudioHandler>();
+        score = GetComponent<PlayerScore>();
 
         objectiveText.text = $"Food Remaining: {foodRemaining}";
     }
 
     private void FixedUpdate() 
     {
-        if(foodRemaining == 0)
+        if(foodRemaining == 0 && !gameEnded)
             TiggerWinGame();
-        else if(power.OutOfPower())
+        else if(power.OutOfPower() && !gameEnded)
             TiggerLoseGame();
     }
 
     private void TiggerWinGame()
     {
-        aux.PlaySound("GameWin");
+        gameEnded = true;
+        aux.PlaySound("GameWin", false);
         objectiveText.text = "Congratulations, you prepared dinner!";
-        Invoke(nameof(TransitionScene), 3f);
+        ScoreTracker.AddScore(score.GetScore());
+        Invoke(nameof(TransitionScene), 4f);
     }
 
     private void TiggerLoseGame()
     {
-        aux.PlaySound("GameLose");
+        gameEnded = true;
+        aux.PlaySound("GameLose", false);
         objectiveText.text = "Uh oh, you ran out of power!";
-        Invoke(nameof(TransitionScene), 3f);
+        Invoke(nameof(TransitionScene), 4f);
     }
 
     public void DecrementFoodCount()

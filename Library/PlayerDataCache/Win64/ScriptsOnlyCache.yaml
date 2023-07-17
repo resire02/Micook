@@ -3,8 +3,8 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AudioHandler
     - FoodSpawner
-    - GameEndingHandler
     - GamePause
+    - HighScoreUpdater
     - InputManager
     - MenuEventHandler
     - Outlet
@@ -15,11 +15,16 @@ ScriptsOnlyBuild:
     - PlayerMicrowave
     - PlayerMovement
     - PlayerObjective
+    - PlayerPerspective
     - PlayerPower
     - PlayerScore
-    - needCharging
+    - ScreenFade
     Cinemachine.dll:
+    - Cinemachine.CinemachineBrain
+    - Cinemachine.CinemachineCollider
     - Cinemachine.CinemachineComposer
+    - Cinemachine.CinemachineFreeLook
+    - Cinemachine.CinemachineInputProvider
     - Cinemachine.CinemachineOrbitalTransposer
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
@@ -62,7 +67,10 @@ ScriptsOnlyBuild:
     Cinemachine:
     - Cinemachine.AxisState
     - Cinemachine.AxisState/Recentering
+    - Cinemachine.CinemachineBlendDefinition
+    - Cinemachine.CinemachineBrain/BrainEvent
     - Cinemachine.CinemachineBrain/VcamActivatedEvent
+    - Cinemachine.CinemachineFreeLook/Orbit
     - Cinemachine.CinemachineOrbitalTransposer/Heading
     - Cinemachine.CinemachineVirtualCameraBase/TransitionParams
     - Cinemachine.LensSettings
@@ -70,6 +78,8 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.InputAction
     - UnityEngine.InputSystem.InputActionMap
     - UnityEngine.InputSystem.InputBinding
+    - UnityEngine.InputSystem.InputControlScheme
+    - UnityEngine.InputSystem.InputControlScheme/DeviceRequirement
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
@@ -153,11 +163,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1592}
     - Class: 114
+      Script: {instanceID: 1780}
+    - Class: 114
       Script: {instanceID: 1798}
     - Class: 114
       Script: {instanceID: 1838}
     - Class: 114
       Script: {instanceID: 1950}
+    - Class: 114
+      Script: {instanceID: 2096}
     - Class: 114
       Script: {instanceID: 2374}
     - Class: 114
@@ -169,51 +183,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2816}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 2962}
     - Class: 114
-      Script: {instanceID: 3108}
+      Script: {instanceID: 3066}
     - Class: 114
-      Script: {instanceID: 3254}
+      Script: {instanceID: 3110}
     - Class: 114
-      Script: {instanceID: 3286}
+      Script: {instanceID: 3256}
     - Class: 114
-      Script: {instanceID: 3992}
+      Script: {instanceID: 3288}
     - Class: 114
-      Script: {instanceID: 4434}
+      Script: {instanceID: 3996}
     - Class: 114
-      Script: {instanceID: 4466}
+      Script: {instanceID: 4438}
     - Class: 114
-      Script: {instanceID: 5128}
+      Script: {instanceID: 4470}
     - Class: 114
-      Script: {instanceID: 5200}
+      Script: {instanceID: 5132}
     - Class: 114
-      Script: {instanceID: 5442}
+      Script: {instanceID: 5204}
     - Class: 114
-      Script: {instanceID: 5522}
+      Script: {instanceID: 5446}
     - Class: 114
-      Script: {instanceID: 5532}
+      Script: {instanceID: 5526}
     - Class: 114
-      Script: {instanceID: 5882}
+      Script: {instanceID: 5536}
     - Class: 114
       Script: {instanceID: 5886}
     - Class: 114
-      Script: {instanceID: 5914}
+      Script: {instanceID: 5890}
     - Class: 114
-      Script: {instanceID: 5992}
+      Script: {instanceID: 5918}
     - Class: 114
-      Script: {instanceID: 6144}
+      Script: {instanceID: 5996}
     - Class: 114
-      Script: {instanceID: 6328}
+      Script: {instanceID: 6116}
     - Class: 114
-      Script: {instanceID: 6560}
+      Script: {instanceID: 6148}
     - Class: 114
-      Script: {instanceID: 7090}
+      Script: {instanceID: 6332}
     - Class: 114
-      Script: {instanceID: 7304}
+      Script: {instanceID: 7094}
     - Class: 114
-      Script: {instanceID: 7838}
+      Script: {instanceID: 7116}
     - Class: 114
-      Script: {instanceID: 8406}
+      Script: {instanceID: 7310}
+    - Class: 114
+      Script: {instanceID: 7844}
+    - Class: 114
+      Script: {instanceID: 8412}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -278,23 +296,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2748}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 2962}
     - Class: 114
-      Script: {instanceID: 3286}
+      Script: {instanceID: 3288}
     - Class: 114
-      Script: {instanceID: 3562}
+      Script: {instanceID: 3564}
     - Class: 114
-      Script: {instanceID: 4440}
+      Script: {instanceID: 3608}
     - Class: 114
-      Script: {instanceID: 4732}
+      Script: {instanceID: 4444}
     - Class: 114
-      Script: {instanceID: 5522}
+      Script: {instanceID: 4736}
     - Class: 114
-      Script: {instanceID: 6144}
+      Script: {instanceID: 5526}
     - Class: 114
-      Script: {instanceID: 6328}
+      Script: {instanceID: 6148}
     - Class: 114
-      Script: {instanceID: 6680}
+      Script: {instanceID: 6332}
+    - Class: 114
+      Script: {instanceID: 6684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -485,7 +505,7 @@ ScriptsOnlyBuild:
       Hash: 7e78dff65742ff12aeb7b1d8b251bbff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: needCharging
+    className: ScreenFade
   - hash:
       serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
@@ -768,6 +788,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSelectMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: d7912c765efb61cb6ee4c7c78f120d21
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HighScoreUpdater
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1442,6 +1468,12 @@ ScriptsOnlyBuild:
     className: InputActionReference
   - hash:
       serializedVersion: 2
+      Hash: 49d4bacb2c2ae5b21f22e97c6e558a29
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerPerspective
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1738,4 +1770,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/MainGame.unity
-  playerPath: C:/Users/jason/Desktop/Micook/GMTK2023.exe
+  playerPath: C:/Users/howfe/Desktop/UnityProjects/micook-app/Micook.exe
